@@ -1,0 +1,36 @@
+Catatan perubahan port pada xampp di local
+
+di server.xml
+
+<!-- <Connector port="8080" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443"
+           maxParameterCount="1000"
+/> -->
+<Connector port="8081" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443"
+           maxParameterCount="1000"
+
+di https-ssl.conf
+
+
+##<VirtualHost _default_:443>
+<VirtualHost _default_:444>
+
+di httpd.conf
+
+#ServerName localhost:80
+ServerName localhost:8088
+
+di my.ini
+
+#port=3306
+port=3308
+
+di config.inc.php //xampp/phpmyadmin
+tambahkan ini:
+$cfg['Servers'][$i]['port'] = '3308';
+
+
+
